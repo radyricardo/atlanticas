@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2ª Edição Atlânticas</title>
+<meta name="description" content="Corrida de mulheres Atlânticas, 2ª edição. Informações, percursos e inscrição.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0A2540;
+    --mist: #EAF2F4;
+    --magenta: #D6246E;
+    --sun: #FFC857;
+    --white: #FFFFFF;
+    --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+    --body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--navy);
+    background: var(--mist);
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--magenta); outline-offset: 3px; }
+
+  /* Cabeçalho */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 2rem 1.5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner { max-width: 62rem; margin: 0 auto; }
+  nav { display: flex; gap: 1.5rem; flex-wrap: wrap; font-weight: 600; font-size: 0.95rem; }
+  nav a { text-decoration: none; padding-bottom: 2px; border-bottom: 2px solid transparent; }
+  nav a:hover { border-bottom-color: var(--sun); }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(3.4rem, 15vw, 10rem);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+    margin: 4rem 0 0;
+  }
+  .hero .edicao {
+    display: inline-block;
+    background: var(--sun);
+    color: var(--navy);
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    padding: 0.2rem 0.9rem;
+    border-radius: 999px;
+    margin-top: 1.25rem;
+  }
+  .hero p.lead {
+    max-width: 34rem;
+    font-size: 1.2rem;
+    margin: 1.5rem 0 2rem;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--magenta);
+    color: var(--white);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.85rem 1.6rem;
+    border-radius: 0.5rem;
+  }
+  .btn:hover { background: #B81C5C; }
+  .wave { display: block; width: 100%; height: auto; margin-top: 3rem; }
+
+  /* Secções */
+  main { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
+  section { padding: 3.5rem 0; }
+  section + section { border-top: 2px solid var(--navy); }
+  h2 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(1.8rem, 5vw, 2.6rem);
+    line-height: 1.1;
+    margin: 0 0 1.25rem;
+  }
+  p { max-width: 40rem; margin: 0 0 1rem; }
+
+  dl.info { display: grid; grid-template-columns: 1fr; gap: 1.25rem 2rem; margin: 0; }
+  dl.info div { border-left: 4px solid var(--magenta); padding-left: 1rem; }
+  dt { font-weight: 600; }
+  dd { margin: 0; }
+  @media (min-width: 40rem) {
+    dl.info { grid-template-columns: repeat(2, 1fr); }
+    dl.info div:last-child { grid-column: 1 / -1; }
+  }
+
+  /* Texto provisório: remover a marcação quando estiver confirmado */
+  .tbc { background: var(--sun); padding: 0 0.3rem; border-radius: 0.2rem; }
+
+  footer {
+    background: var(--navy);
+    color: var(--white);
+    padding: 2.5rem 1.5rem;
+    margin-top: 2rem;
+  }
+  footer .foot-inner { max-width: 62rem; margin: 0 auto; }
+  footer p { margin-bottom: 0.4rem; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <nav aria-label="Principal">
+      <a href="#sobre">Sobre</a>
+      <a href="#informacoes">Informações</a>
+      <a href="#inscricao">Inscrição</a>
+      <a href="#contactos">Contactos</a>
+    </nav>
+    <h1>Atlânticas</h1>
+    <span class="edicao">2ª Edição</span>
+    <p class="lead">Uma corrida só de mulheres, na Madeira. 16 km para correr ou caminhar, a 27 de fevereiro.</p>
+    <a class="btn" href="#inscricao">Quero inscrever-me</a>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#EAF2F4" d="M0,64 C180,110 360,10 540,48 C720,86 900,118 1080,70 C1240,28 1340,40 1440,66 L1440,120 L0,120 Z"/>
+  </svg>
+</header>
+
+<main>
+  <section id="sobre">
+    <h2>Sobre a prova</h2>
+    <p>As Atlânticas são uma corrida de mulheres, para todos os ritmos e idades. Chegamos à 2ª edição com o mesmo objetivo: juntar quem corre há anos e quem vai estrear-se.</p>
+    <p><span class="tbc">Texto provisório: escreve aqui a história da prova e o que a torna especial.</span></p>
+  </section>
+
+  <section id="informacoes">
+    <h2>Informações</h2>
+    <dl class="info">
+      <div>
+        <dt>Data</dt>
+        <dd>27 de fevereiro</dd>
+      </div>
+      <div>
+        <dt>Hora</dt>
+        <dd>9h00</dd>
+      </div>
+      <div>
+        <dt>Partida</dt>
+        <dd>Portela, Madeira</dd>
+      </div>
+      <div>
+        <dt>Local da prova</dt>
+        <dd>Machico</dd>
+      </div>
+      <div>
+        <dt>Percurso</dt>
+        <dd>16 km, percurso único. Podes fazê-lo a correr ou em modo caminhada.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section id="inscricao">
+    <h2>Inscrição</h2>
+    <p>As inscrições são feitas online. Garante o teu lugar e recebe todas as informações da prova por email.</p>
+    <!-- Trocar o # pelo link do serviço de pagamento quando existir -->
+    <a class="btn" href="#">Inscrever-me</a>
+    <p style="margin-top:1rem"><span class="tbc">O botão ainda não tem ligação ao pagamento.</span></p>
+  </section>
+
+  <section id="contactos">
+    <h2>Contactos</h2>
+    <p>Dúvidas sobre a prova? Fala connosco.</p>
+    <p><span class="tbc">Email e redes sociais a confirmar</span></p>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <p><strong>2ª Edição Atlânticas</strong></p>
+    <p>Corrida de mulheres.</p>
+  </div>
+</footer>
+
+</body>
+</html>
