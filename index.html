@@ -29,9 +29,8 @@
     background: var(--mist);
   }
   a { color: inherit; }
-  :focus-visible { outline: 3px solid var(--magenta); outline-offset: 3px; }
+  :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
 
-  /* Cabeçalho */
   .hero {
     background: var(--navy);
     color: var(--white);
@@ -40,9 +39,26 @@
     overflow: hidden;
   }
   .hero-inner { max-width: 62rem; margin: 0 auto; }
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
   nav { display: flex; gap: 1.5rem; flex-wrap: wrap; font-weight: 600; font-size: 0.95rem; }
   nav a { text-decoration: none; padding-bottom: 2px; border-bottom: 2px solid transparent; }
   nav a:hover { border-bottom-color: var(--sun); }
+
+  .lang { display: flex; gap: 0.4rem; }
+  .lang button {
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--white);
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.45);
+    border-radius: 0.4rem;
+    padding: 0.2rem 0.65rem;
+    cursor: pointer;
+  }
+  .lang button:hover { border-color: var(--white); }
+  .lang button[aria-pressed="true"] { background: var(--sun); border-color: var(--sun); color: var(--navy); }
+
   .hero h1 {
     font-family: var(--display);
     font-weight: 800;
@@ -62,11 +78,7 @@
     border-radius: 999px;
     margin-top: 1.25rem;
   }
-  .hero p.lead {
-    max-width: 34rem;
-    font-size: 1.2rem;
-    margin: 1.5rem 0 2rem;
-  }
+  .hero p.lead { max-width: 34rem; font-size: 1.2rem; margin: 1.5rem 0 2rem; }
   .btn {
     display: inline-block;
     background: var(--magenta);
@@ -79,7 +91,6 @@
   .btn:hover { background: #B81C5C; }
   .wave { display: block; width: 100%; height: auto; margin-top: 3rem; }
 
-  /* Secções */
   main { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
   section { padding: 3.5rem 0; }
   section + section { border-top: 2px solid var(--navy); }
@@ -104,12 +115,7 @@
   /* Texto provisório: remover a marcação quando estiver confirmado */
   .tbc { background: var(--sun); padding: 0 0.3rem; border-radius: 0.2rem; }
 
-  footer {
-    background: var(--navy);
-    color: var(--white);
-    padding: 2.5rem 1.5rem;
-    margin-top: 2rem;
-  }
+  footer { background: var(--navy); color: var(--white); padding: 2.5rem 1.5rem; margin-top: 2rem; }
   footer .foot-inner { max-width: 62rem; margin: 0 auto; }
   footer p { margin-bottom: 0.4rem; }
 </style>
@@ -118,16 +124,23 @@
 
 <header class="hero">
   <div class="hero-inner">
-    <nav aria-label="Principal">
-      <a href="#sobre">Sobre</a>
-      <a href="#informacoes">Informações</a>
-      <a href="#inscricao">Inscrição</a>
-      <a href="#contactos">Contactos</a>
-    </nav>
+    <div class="topbar">
+      <nav aria-label="Menu">
+        <a href="#sobre" data-i18n="nav_about">Sobre</a>
+        <a href="#informacoes" data-i18n="nav_info">Informações</a>
+        <a href="#inscricao" data-i18n="nav_reg">Inscrição</a>
+        <a href="#contactos" data-i18n="nav_contact">Contactos</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Língua / Idioma / Language">
+        <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
     <h1>Atlânticas</h1>
-    <span class="edicao">2ª Edição</span>
-    <p class="lead">Uma corrida só de mulheres, na Madeira. 16 km para correr ou caminhar, a 27 de fevereiro.</p>
-    <a class="btn" href="#inscricao">Quero inscrever-me</a>
+    <span class="edicao" data-i18n="edition">2ª Edição</span>
+    <p class="lead" data-i18n="lead">Uma corrida só de mulheres, na Madeira. 16 km para correr ou caminhar, a 27 de fevereiro.</p>
+    <a class="btn" href="#inscricao" data-i18n="cta">Quero inscrever-me</a>
   </div>
   <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
     <path fill="#EAF2F4" d="M0,64 C180,110 360,10 540,48 C720,86 900,118 1080,70 C1240,28 1340,40 1440,66 L1440,120 L0,120 Z"/>
@@ -136,58 +149,169 @@
 
 <main>
   <section id="sobre">
-    <h2>Sobre a prova</h2>
-    <p>As Atlânticas são uma corrida de mulheres, para todos os ritmos e idades. Chegamos à 2ª edição com o mesmo objetivo: juntar quem corre há anos e quem vai estrear-se.</p>
-    <p><span class="tbc">Texto provisório: escreve aqui a história da prova e o que a torna especial.</span></p>
+    <h2 data-i18n="about_h">Sobre a prova</h2>
+    <p data-i18n="about_p">As Atlânticas são uma corrida de mulheres, para todos os ritmos e idades. Chegamos à 2ª edição com o mesmo objetivo: juntar quem corre há anos e quem vai estrear-se.</p>
+    <p><span class="tbc" data-i18n="about_tbc">Texto provisório: escreve aqui a história da prova e o que a torna especial.</span></p>
   </section>
 
   <section id="informacoes">
-    <h2>Informações</h2>
+    <h2 data-i18n="info_h">Informações</h2>
     <dl class="info">
       <div>
-        <dt>Data</dt>
-        <dd>27 de fevereiro</dd>
+        <dt data-i18n="dt_date">Data</dt>
+        <dd data-i18n="dd_date">27 de fevereiro</dd>
       </div>
       <div>
-        <dt>Hora</dt>
-        <dd>9h00</dd>
+        <dt data-i18n="dt_time">Hora</dt>
+        <dd data-i18n="dd_time">9h00</dd>
       </div>
       <div>
-        <dt>Partida</dt>
+        <dt data-i18n="dt_start">Partida</dt>
         <dd>Portela, Madeira</dd>
       </div>
       <div>
-        <dt>Local da prova</dt>
+        <dt data-i18n="dt_place">Local da prova</dt>
         <dd>Machico</dd>
       </div>
       <div>
-        <dt>Percurso</dt>
-        <dd>16 km, percurso único. Podes fazê-lo a correr ou em modo caminhada.</dd>
+        <dt data-i18n="dt_course">Percurso</dt>
+        <dd data-i18n="dd_course">16 km, percurso único. Podes fazê-lo a correr ou em modo caminhada.</dd>
       </div>
     </dl>
   </section>
 
   <section id="inscricao">
-    <h2>Inscrição</h2>
-    <p>As inscrições são feitas online. Garante o teu lugar e recebe todas as informações da prova por email.</p>
+    <h2 data-i18n="reg_h">Inscrição</h2>
+    <p data-i18n="reg_p">As inscrições são feitas online. Garante o teu lugar e recebe todas as informações da prova por email.</p>
     <!-- Trocar o # pelo link do serviço de pagamento quando existir -->
-    <a class="btn" href="#">Inscrever-me</a>
-    <p style="margin-top:1rem"><span class="tbc">O botão ainda não tem ligação ao pagamento.</span></p>
+    <a class="btn" href="#" data-i18n="reg_btn">Inscrever-me</a>
+    <p style="margin-top:1rem"><span class="tbc" data-i18n="reg_tbc">O botão ainda não tem ligação ao pagamento.</span></p>
   </section>
 
   <section id="contactos">
-    <h2>Contactos</h2>
-    <p>Dúvidas sobre a prova? Fala connosco.</p>
-    <p><span class="tbc">Email e redes sociais a confirmar</span></p>
+    <h2 data-i18n="contact_h">Contactos</h2>
+    <p data-i18n="contact_p">Dúvidas sobre a prova? Fala connosco.</p>
+    <p><span class="tbc" data-i18n="contact_tbc">Email e redes sociais a confirmar</span></p>
   </section>
 </main>
 
 <footer>
   <div class="foot-inner">
-    <p><strong>2ª Edição Atlânticas</strong></p>
-    <p>Corrida de mulheres.</p>
+    <p><strong data-i18n="title">2ª Edição Atlânticas</strong></p>
+    <p data-i18n="foot">Corrida de mulheres.</p>
   </div>
 </footer>
 
+<script>
+(function () {
+  var T = {
+    pt: {
+      title: "2ª Edição Atlânticas",
+      desc: "Corrida de mulheres Atlânticas, 2ª edição. Informações, percursos e inscrição.",
+      nav_about: "Sobre", nav_info: "Informações", nav_reg: "Inscrição", nav_contact: "Contactos",
+      edition: "2ª Edição",
+      lead: "Uma corrida só de mulheres, na Madeira. 16 km para correr ou caminhar, a 27 de fevereiro.",
+      cta: "Quero inscrever-me",
+      about_h: "Sobre a prova",
+      about_p: "As Atlânticas são uma corrida de mulheres, para todos os ritmos e idades. Chegamos à 2ª edição com o mesmo objetivo: juntar quem corre há anos e quem vai estrear-se.",
+      about_tbc: "Texto provisório: escreve aqui a história da prova e o que a torna especial.",
+      info_h: "Informações",
+      dt_date: "Data", dd_date: "27 de fevereiro",
+      dt_time: "Hora", dd_time: "9h00",
+      dt_start: "Partida", dt_place: "Local da prova",
+      dt_course: "Percurso",
+      dd_course: "16 km, percurso único. Podes fazê-lo a correr ou em modo caminhada.",
+      reg_h: "Inscrição",
+      reg_p: "As inscrições são feitas online. Garante o teu lugar e recebe todas as informações da prova por email.",
+      reg_btn: "Inscrever-me",
+      reg_tbc: "O botão ainda não tem ligação ao pagamento.",
+      contact_h: "Contactos",
+      contact_p: "Dúvidas sobre a prova? Fala connosco.",
+      contact_tbc: "Email e redes sociais a confirmar",
+      foot: "Corrida de mulheres."
+    },
+    es: {
+      title: "2.ª Edición Atlânticas",
+      desc: "Carrera de mujeres Atlânticas, 2.ª edición. Información, recorrido e inscripción.",
+      nav_about: "Acerca de", nav_info: "Información", nav_reg: "Inscripción", nav_contact: "Contacto",
+      edition: "2.ª Edición",
+      lead: "Una carrera solo para mujeres, en Madeira. 16 km para correr o caminar, el 27 de febrero.",
+      cta: "Quiero inscribirme",
+      about_h: "Sobre la carrera",
+      about_p: "Las Atlânticas son una carrera de mujeres, para todos los ritmos y edades. Llegamos a la 2.ª edición con el mismo objetivo: reunir a quienes corren desde hace años y a quienes se estrenan.",
+      about_tbc: "Texto provisional: escribe aquí la historia de la carrera y lo que la hace especial.",
+      info_h: "Información",
+      dt_date: "Fecha", dd_date: "27 de febrero",
+      dt_time: "Hora", dd_time: "9:00",
+      dt_start: "Salida", dt_place: "Lugar de la carrera",
+      dt_course: "Recorrido",
+      dd_course: "16 km, recorrido único. Puedes hacerlo corriendo o caminando.",
+      reg_h: "Inscripción",
+      reg_p: "Las inscripciones se hacen en línea. Asegura tu plaza y recibe toda la información de la carrera por correo electrónico.",
+      reg_btn: "Inscribirme",
+      reg_tbc: "El botón aún no tiene enlace de pago.",
+      contact_h: "Contacto",
+      contact_p: "¿Dudas sobre la carrera? Escríbenos.",
+      contact_tbc: "Correo y redes sociales por confirmar",
+      foot: "Carrera de mujeres."
+    },
+    en: {
+      title: "Atlânticas 2nd Edition",
+      desc: "Atlânticas women's race, 2nd edition. Information, course and registration.",
+      nav_about: "About", nav_info: "Information", nav_reg: "Registration", nav_contact: "Contact",
+      edition: "2nd Edition",
+      lead: "A women-only race in Madeira. 16 km to run or walk, on 27 February.",
+      cta: "I want to register",
+      about_h: "About the race",
+      about_p: "Atlânticas is a women's race for every pace and age. Now in its 2nd edition, it keeps the same goal: bringing together those who have run for years and those trying it for the first time.",
+      about_tbc: "Placeholder text: add the story of the race and what makes it special.",
+      info_h: "Information",
+      dt_date: "Date", dd_date: "27 February",
+      dt_time: "Time", dd_time: "9:00 am",
+      dt_start: "Start", dt_place: "Race location",
+      dt_course: "Course",
+      dd_course: "16 km, a single course. You can run it or walk it.",
+      reg_h: "Registration",
+      reg_p: "Registration is online. Secure your place and receive all race information by email.",
+      reg_btn: "Register",
+      reg_tbc: "The button is not linked to payment yet.",
+      contact_h: "Contact",
+      contact_p: "Questions about the race? Get in touch.",
+      contact_tbc: "Email and social media to be confirmed",
+      foot: "Women's race."
+    }
+  };
+  var HTML_LANG = { pt: "pt-PT", es: "es", en: "en" };
+
+  function setLang(l) {
+    if (!T[l]) l = "pt";
+    var d = T[l];
+    document.documentElement.lang = HTML_LANG[l];
+    document.title = d.title;
+    var meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute("content", d.desc);
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n");
+      if (d[k] !== undefined) el.textContent = d[k];
+    });
+    document.querySelectorAll(".lang button").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === l ? "true" : "false");
+    });
+    try { localStorage.setItem("atlanticas-lang", l); } catch (e) {}
+  }
+
+  document.querySelectorAll(".lang button").forEach(function (b) {
+    b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
+  });
+
+  var start = null;
+  try { start = localStorage.getItem("atlanticas-lang"); } catch (e) {}
+  if (!start) {
+    var nav = (navigator.language || "pt").slice(0, 2).toLowerCase();
+    start = T[nav] ? nav : "pt";
+  }
+  setLang(start);
+})();
+</script>
 </body>
 </html>
