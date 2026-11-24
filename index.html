@@ -20,87 +20,32 @@
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    font-family: var(--body);
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    color: var(--navy);
-    background: var(--mist);
-  }
+  body { margin: 0; font-family: var(--body); font-size: 1.0625rem; line-height: 1.6; color: var(--navy); background: var(--mist); }
   a { color: inherit; }
   :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
 
-  .hero {
-    background: var(--navy);
-    color: var(--white);
-    padding: 2rem 1.5rem 0;
-    position: relative;
-    overflow: hidden;
-  }
+  .hero { background: var(--navy); color: var(--white); padding: 2rem 1.5rem 0; position: relative; overflow: hidden; }
   .hero-inner { max-width: 62rem; margin: 0 auto; }
   .topbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
   nav { display: flex; gap: 1.5rem; flex-wrap: wrap; font-weight: 600; font-size: 0.95rem; }
   nav a { text-decoration: none; padding-bottom: 2px; border-bottom: 2px solid transparent; }
   nav a:hover { border-bottom-color: var(--sun); }
-
   .lang { display: flex; gap: 0.4rem; }
-  .lang button {
-    font: inherit;
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: var(--white);
-    background: transparent;
-    border: 2px solid rgba(255,255,255,0.45);
-    border-radius: 0.4rem;
-    padding: 0.2rem 0.65rem;
-    cursor: pointer;
-  }
+  .lang button { font: inherit; font-weight: 600; font-size: 0.85rem; color: var(--white); background: transparent; border: 2px solid rgba(255,255,255,0.45); border-radius: 0.4rem; padding: 0.2rem 0.65rem; cursor: pointer; }
   .lang button:hover { border-color: var(--white); }
   .lang button[aria-pressed="true"] { background: var(--sun); border-color: var(--sun); color: var(--navy); }
-
-  .hero h1 {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: clamp(3.4rem, 15vw, 10rem);
-    line-height: 0.92;
-    letter-spacing: -0.03em;
-    margin: 4rem 0 0;
-  }
-  .hero .edicao {
-    display: inline-block;
-    background: var(--sun);
-    color: var(--navy);
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: clamp(1.1rem, 3vw, 1.6rem);
-    padding: 0.2rem 0.9rem;
-    border-radius: 999px;
-    margin-top: 1.25rem;
-  }
+  .hero h1 { font-family: var(--display); font-weight: 800; font-size: clamp(3.4rem, 15vw, 10rem); line-height: 0.92; letter-spacing: -0.03em; margin: 4rem 0 0; }
+  .hero .edicao { display: inline-block; background: var(--sun); color: var(--navy); font-family: var(--display); font-weight: 800; font-size: clamp(1.1rem, 3vw, 1.6rem); padding: 0.2rem 0.9rem; border-radius: 999px; margin-top: 1.25rem; }
   .hero p.lead { max-width: 34rem; font-size: 1.2rem; margin: 1.5rem 0 2rem; }
-  .btn {
-    display: inline-block;
-    background: var(--magenta);
-    color: var(--white);
-    font-weight: 600;
-    text-decoration: none;
-    padding: 0.85rem 1.6rem;
-    border-radius: 0.5rem;
-  }
+  .btn { display: inline-block; background: var(--magenta); color: var(--white); font: inherit; font-weight: 600; text-decoration: none; padding: 0.85rem 1.6rem; border: 0; border-radius: 0.5rem; cursor: pointer; }
   .btn:hover { background: #B81C5C; }
+  .btn[disabled] { opacity: 0.6; cursor: wait; }
   .wave { display: block; width: 100%; height: auto; margin-top: 3rem; }
 
   main { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
   section { padding: 3.5rem 0; }
   section + section { border-top: 2px solid var(--navy); }
-  h2 {
-    font-family: var(--display);
-    font-weight: 800;
-    font-size: clamp(1.8rem, 5vw, 2.6rem);
-    line-height: 1.1;
-    margin: 0 0 1.25rem;
-  }
+  h2 { font-family: var(--display); font-weight: 800; font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.1; margin: 0 0 1.25rem; }
   p { max-width: 40rem; margin: 0 0 1rem; }
 
   dl.info { display: grid; grid-template-columns: 1fr; gap: 1.25rem 2rem; margin: 0; }
@@ -111,9 +56,31 @@
     dl.info { grid-template-columns: repeat(2, 1fr); }
     dl.info div:last-child { grid-column: 1 / -1; }
   }
-
-  /* Texto provisório: remover a marcação quando estiver confirmado */
   .tbc { background: var(--sun); padding: 0 0.3rem; border-radius: 0.2rem; }
+
+  /* Formulário */
+  form { display: grid; gap: 1.1rem; max-width: 40rem; }
+  .row2 { display: grid; gap: 1.1rem; grid-template-columns: 1fr; }
+  @media (min-width: 40rem) { .row2 { grid-template-columns: 1fr 1fr; } .row-phone { grid-template-columns: 1fr 1.4fr; } }
+  label, .lbl { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+  input[type=text], input[type=email], input[type=tel], input[type=date], select {
+    width: 100%; font: inherit; color: var(--navy); background: var(--white);
+    padding: 0.65rem 0.75rem; border: 2px solid var(--navy); border-radius: 0.4rem;
+  }
+  fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  .opt { display: flex; gap: 0.6rem; align-items: flex-start; font-weight: 400; margin: 0.3rem 0; }
+  .opt input { margin-top: 0.35rem; accent-color: var(--magenta); }
+  .small { font-size: 0.9rem; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .msg { max-width: 40rem; padding: 0.8rem 1rem; border-radius: 0.4rem; border: 2px solid var(--navy); background: var(--white); margin-top: 1rem; }
+  .msg.err { border-color: var(--magenta); }
+  .panel { max-width: 40rem; background: var(--white); border: 2px solid var(--navy); border-left: 8px solid var(--magenta); border-radius: 0.4rem; padding: 1.25rem 1.5rem; }
+  .panel h3 { font-family: var(--display); font-size: 1.5rem; margin: 0 0 0.5rem; }
+  .code { font-family: var(--display); font-weight: 800; font-size: 2.2rem; letter-spacing: 0.02em; margin: 0.2rem 0 0.8rem; }
+  .panel dl { margin: 0.5rem 0 1rem; }
+  .panel dt { font-weight: 600; margin-top: 0.5rem; }
+  .inline { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: end; margin-top: 0.75rem; }
+  .inline > div { flex: 1 1 14rem; }
 
   footer { background: var(--navy); color: var(--white); padding: 2.5rem 1.5rem; margin-top: 2rem; }
   footer .foot-inner { max-width: 62rem; margin: 0 auto; }
@@ -129,6 +96,7 @@
         <a href="#sobre" data-i18n="nav_about">Sobre</a>
         <a href="#informacoes" data-i18n="nav_info">Informações</a>
         <a href="#inscricao" data-i18n="nav_reg">Inscrição</a>
+        <a href="#consulta" data-i18n="nav_lookup">A minha inscrição</a>
         <a href="#contactos" data-i18n="nav_contact">Contactos</a>
       </nav>
       <div class="lang" role="group" aria-label="Língua / Idioma / Language">
@@ -139,7 +107,7 @@
     </div>
     <h1>Atlânticas</h1>
     <span class="edicao" data-i18n="edition">2ª Edição</span>
-    <p class="lead" data-i18n="lead">Uma corrida só de mulheres, na Madeira. 16 km para correr ou caminhar, a 27 de fevereiro.</p>
+    <p class="lead" data-i18n="lead">Uma corrida só de mulheres, na Madeira. 16 km para caminhar ou correr, a 27 de fevereiro.</p>
     <a class="btn" href="#inscricao" data-i18n="cta">Quero inscrever-me</a>
   </div>
   <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
@@ -150,48 +118,113 @@
 <main>
   <section id="sobre">
     <h2 data-i18n="about_h">Sobre a prova</h2>
-    <p data-i18n="about_p">As Atlânticas são uma corrida de mulheres, para todos os ritmos e idades. Chegamos à 2ª edição com o mesmo objetivo: juntar quem corre há anos e quem vai estrear-se.</p>
-    <p><span class="tbc" data-i18n="about_tbc">Texto provisório: escreve aqui a história da prova e o que a torna especial.</span></p>
+    <p><strong data-i18n="about_p1">Um percurso, muitas mulheres e uma experiência para recordar!</strong></p>
+    <p data-i18n="about_p2">x</p>
+    <p data-i18n="about_p3">x</p>
+    <p><strong data-i18n="about_p4">Vem fazer parte desta aventura. O caminho é nosso!</strong></p>
+  </section>
+
+  <section id="percurso">
+    <h2 data-i18n="course_h">Percurso</h2>
+    <p data-i18n="course_p">x</p>
   </section>
 
   <section id="informacoes">
     <h2 data-i18n="info_h">Informações</h2>
     <dl class="info">
-      <div>
-        <dt data-i18n="dt_date">Data</dt>
-        <dd data-i18n="dd_date">27 de fevereiro</dd>
-      </div>
-      <div>
-        <dt data-i18n="dt_time">Hora</dt>
-        <dd data-i18n="dd_time">9h00</dd>
-      </div>
-      <div>
-        <dt data-i18n="dt_start">Partida</dt>
-        <dd>Portela, Madeira</dd>
-      </div>
-      <div>
-        <dt data-i18n="dt_place">Local da prova</dt>
-        <dd>Machico</dd>
-      </div>
-      <div>
-        <dt data-i18n="dt_course">Percurso</dt>
-        <dd data-i18n="dd_course">16 km, percurso único. Podes fazê-lo a correr ou em modo caminhada.</dd>
-      </div>
+      <div><dt data-i18n="dt_date">Data</dt><dd data-i18n="dd_date">27 de fevereiro</dd></div>
+      <div><dt data-i18n="dt_time">Hora</dt><dd data-i18n="dd_time">9h00</dd></div>
+      <div><dt data-i18n="dt_start">Partida</dt><dd>Portela, Madeira</dd></div>
+      <div><dt data-i18n="dt_place">Local da prova</dt><dd>Machico</dd></div>
+      <div><dt data-i18n="dt_course">Percurso</dt><dd data-i18n="dd_course">16 km, percurso único. Podes fazê-lo em modo caminhada ou a correr.</dd></div>
     </dl>
   </section>
 
   <section id="inscricao">
     <h2 data-i18n="reg_h">Inscrição</h2>
-    <p data-i18n="reg_p">As inscrições são feitas online. Garante o teu lugar e recebe todas as informações da prova por email.</p>
-    <!-- Trocar o # pelo link do serviço de pagamento quando existir -->
-    <a class="btn" href="#" data-i18n="reg_btn">Inscrever-me</a>
-    <p style="margin-top:1rem"><span class="tbc" data-i18n="reg_tbc">O botão ainda não tem ligação ao pagamento.</span></p>
+    <p><strong data-i18n="reg_lead">x</strong></p>
+    <p data-i18n="reg_p1">x</p>
+    <p data-i18n="reg_p2">x</p>
+    <p data-i18n="reg_p3">x</p>
+    <p data-i18n="reg_intro">Inscrição: 35 €. Podes pagar já com cartão ou MB WAY, ou por transferência bancária até 20 de fevereiro.</p>
+
+    <div id="reg-result" aria-live="polite"></div>
+
+    <form id="reg-form" novalidate>
+      <div>
+        <label for="f-name" data-i18n="f_name">Nome completo</label>
+        <input type="text" id="f-name" name="name" autocomplete="name" maxlength="120" required>
+      </div>
+      <div>
+        <label for="f-email" data-i18n="f_email">Email</label>
+        <input type="email" id="f-email" name="email" autocomplete="email" maxlength="120" required>
+      </div>
+      <div class="row2">
+        <div>
+          <label for="f-country" data-i18n="f_country">País</label>
+          <select id="f-country" name="country" required></select>
+        </div>
+        <div>
+          <label for="f-birth" data-i18n="f_birth">Data de nascimento</label>
+          <input type="date" id="f-birth" name="birth" autocomplete="bday" required>
+        </div>
+      </div>
+      <fieldset>
+        <div class="lbl" data-i18n="f_resident">É residente na Região Autónoma da Madeira?</div>
+        <label class="opt"><input type="radio" name="resident" value="Sim" required><span data-i18n="yes">Sim</span></label>
+        <label class="opt"><input type="radio" name="resident" value="Não"><span data-i18n="no">Não</span></label>
+      </fieldset>
+      <div class="row2 row-phone">
+        <div>
+          <label for="f-dial" data-i18n="f_dial">Indicativo</label>
+          <select id="f-dial" name="dial" required></select>
+        </div>
+        <div>
+          <label for="f-phone" data-i18n="f_phone">Telemóvel</label>
+          <input type="tel" id="f-phone" name="phone" inputmode="tel" autocomplete="tel-national" maxlength="20" required>
+        </div>
+      </div>
+      <fieldset>
+        <div class="lbl" data-i18n="f_pay">Como queres pagar?</div>
+        <label class="opt"><input type="radio" name="method" value="online" checked><span data-i18n="pay_online">Cartão ou MB WAY (confirmação imediata)</span></label>
+        <label class="opt"><input type="radio" name="method" value="transfer"><span data-i18n="pay_transfer">Transferência bancária</span></label>
+      </fieldset>
+      <label class="opt"><input type="checkbox" id="f-rules" required><span>
+        <span data-i18n="f_rules_pre">Li e aceito o </span><a id="rules-link" href="regulamento-pt.pdf" target="_blank" rel="noopener" data-i18n="f_rules_link">regulamento da prova</a>.</span></label>
+      <label class="opt small"><input type="checkbox" id="f-gdpr" required><span id="gdpr-text"></span></label>
+      <div class="hp" aria-hidden="true"><label>Website <input type="text" id="f-website" tabindex="-1" autocomplete="off"></label></div>
+      <div><button type="submit" class="btn" id="f-submit" data-i18n="submit">Inscrever-me</button></div>
+      <div id="reg-msg" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <section id="consulta">
+    <h2 data-i18n="lk_h">A minha inscrição</h2>
+    <p data-i18n="lk_intro">Já te inscreveste? Escreve o código de inscrição e o email que usaste para ver o estado da tua inscrição.</p>
+    <form id="lk-form" novalidate>
+      <div class="row2">
+        <div>
+          <label for="lk-code" data-i18n="lk_code">Código de inscrição</label>
+          <input type="text" id="lk-code" autocomplete="off" autocapitalize="characters" maxlength="20" placeholder="ATL-0001" required>
+        </div>
+        <div>
+          <label for="lk-email" data-i18n="lk_email">Email</label>
+          <input type="email" id="lk-email" autocomplete="email" maxlength="120" required>
+        </div>
+      </div>
+      <div><button type="submit" class="btn" id="lk-submit" data-i18n="lk_btn">Consultar</button></div>
+    </form>
+    <div id="lk-result" aria-live="polite"></div>
   </section>
 
   <section id="contactos">
     <h2 data-i18n="contact_h">Contactos</h2>
-    <p data-i18n="contact_p">Dúvidas sobre a prova? Fala connosco.</p>
-    <p><span class="tbc" data-i18n="contact_tbc">Email e redes sociais a confirmar</span></p>
+    <p><strong data-i18n="contact_lead">x</strong></p>
+    <p data-i18n="contact_p">x</p>
+    <p><a href="mailto:asaltamontesmadeira@gmail.com">asaltamontesmadeira@gmail.com</a></p>
+    <p data-i18n="contact_social">x</p>
+    <p><a href="https://www.instagram.com/asaltamontes_madeira/" target="_blank" rel="noopener">Instagram @asaltamontes_madeira</a></p>
+    <p><a href="https://www.facebook.com/profile.php?id=61554754921830" target="_blank" rel="noopener">Facebook AsaltamontesMadeira</a></p>
   </section>
 </main>
 
@@ -199,92 +232,235 @@
   <div class="foot-inner">
     <p><strong data-i18n="title">2ª Edição Atlânticas</strong></p>
     <p data-i18n="foot">Corrida de mulheres.</p>
+    <p><span data-i18n="org_by">Organização:</span> Grupo Desportivo Corticeiras · Asaltamontes Madeira</p>
   </div>
 </footer>
 
 <script>
 (function () {
+  /* ====== CONFIGURAÇÃO (substituir) ====== */
+  var API_URL = "COLAR_AQUI_O_URL_DA_APLICACAO_WEB_DO_GOOGLE";   // URL da implementação do Apps Script
+  var ORG_NAME = "Grupo Desportivo Corticeiras";
+  var ORG_EMAIL = "asaltamontesmadeira@gmail.com";
+  var AMOUNT = { pt: "35 €", es: "35 €", en: "€35" };
+  var DEADLINE = { pt: "20 de fevereiro", es: "20 de febrero", en: "20 February" };
+  /* ======================================= */
+
   var T = {
     pt: {
       title: "2ª Edição Atlânticas",
       desc: "Corrida de mulheres Atlânticas, 2ª edição. Informações, percursos e inscrição.",
       nav_about: "Sobre", nav_info: "Informações", nav_reg: "Inscrição", nav_contact: "Contactos",
       edition: "2ª Edição",
-      lead: "Uma corrida só de mulheres, na Madeira. 16 km para correr ou caminhar, a 27 de fevereiro.",
+      lead: "Uma corrida só de mulheres, na Madeira. 16 km para caminhar ou correr, a 27 de fevereiro.",
       cta: "Quero inscrever-me",
       about_h: "Sobre a prova",
-      about_p: "As Atlânticas são uma corrida de mulheres, para todos os ritmos e idades. Chegamos à 2ª edição com o mesmo objetivo: juntar quem corre há anos e quem vai estrear-se.",
-      about_tbc: "Texto provisório: escreve aqui a história da prova e o que a torna especial.",
+      about_p1: "Um percurso, muitas mulheres e uma experiência para recordar!",
+      about_p2: "As Atlânticas juntam mulheres que gostam de desafios, natureza e bons momentos. No cenário maravilhoso das montanhas da Ilha da Madeira, cada participante escolhe o seu ritmo: pode caminhar, correr ou simplesmente aproveitar cada instante desta aventura.",
+      about_p3: "Não importa a idade, a experiência ou a velocidade. O que importa é participar, desfrutar das paisagens, partilhar sorrisos e celebrar a energia feminina em plena natureza.",
+      about_p4: "Vem fazer parte desta aventura. O caminho é nosso!",
+      course_h: "Percurso",
+      course_p: "16 km de natureza, aventura e paisagens deslumbrantes. Um percurso único, que podes fazer a caminhar ou a correr, ao teu ritmo e desfrutando de cada momento.",
       info_h: "Informações",
-      dt_date: "Data", dd_date: "27 de fevereiro",
-      dt_time: "Hora", dd_time: "9h00",
-      dt_start: "Partida", dt_place: "Local da prova",
-      dt_course: "Percurso",
-      dd_course: "16 km, percurso único. Podes fazê-lo a correr ou em modo caminhada.",
+      dt_date: "Data", dd_date: "27 de fevereiro", dt_time: "Hora", dd_time: "9h00",
+      dt_start: "Partida", dt_place: "Local da prova", dt_course: "Percurso",
+      dd_course: "16 km, percurso único. Podes fazê-lo em modo caminhada ou a correr.",
       reg_h: "Inscrição",
-      reg_p: "As inscrições são feitas online. Garante o teu lugar e recebe todas as informações da prova por email.",
-      reg_btn: "Inscrever-me",
-      reg_tbc: "O botão ainda não tem ligação ao pagamento.",
-      contact_h: "Contactos",
-      contact_p: "Dúvidas sobre a prova? Fala connosco.",
-      contact_tbc: "Email e redes sociais a confirmar",
-      foot: "Corrida de mulheres."
+      reg_lead: "Estás pronta para fazer parte desta aventura?",
+      reg_p1: "Junta-te a nós para uma manhã diferente, rodeada de natureza, boa energia e mulheres incríveis!",
+      reg_p2: "Garante o teu lugar e prepara-te para viver uma experiência única nas paisagens da Ilha da Madeira.",
+      reg_p3: "Cada passo conta. Reserva o teu lugar nas Atlânticas!",
+      reg_intro: "Inscrição: {amount}. Podes pagar já com cartão ou MB WAY, ou por transferência bancária até {deadline}.",
+      f_name: "Nome completo", f_email: "Email", f_country: "País", f_birth: "Data de nascimento",
+      f_resident: "É residente na Região Autónoma da Madeira?", yes: "Sim", no: "Não",
+      f_dial: "Indicativo", f_phone: "Telemóvel", f_pay: "Como queres pagar?",
+      pay_online: "Cartão ou MB WAY (confirmação imediata)", pay_transfer: "Transferência bancária",
+      f_rules_pre: "Li e aceito o ", f_rules_link: "regulamento da prova",
+      f_gdpr: "Aceito o tratamento dos meus dados. Os dados são usados apenas para gerir a inscrição e comunicar sobre a prova, e só a organização ({org}) tem acesso. Contacto: {mail}.",
+      submit: "Inscrever-me", choose: "Escolher…",
+      sending: "A enviar…",
+      err_unconfigured: "O formulário está em modo de pré-visualização e ainda não está ligado ao sistema de inscrições.",
+      err_invalid: "Verifica os dados: há campos em falta ou incorretos.",
+      err_under_age: "A idade mínima para participar é 16 anos.",
+      err_full: "As inscrições estão esgotadas.",
+      err_duplicate: "Já existe uma inscrição com estes dados. Se precisas de ajuda, contacta a organização.",
+      err_wait: "Aguarda um momento e tenta de novo.",
+      err_server: "Ocorreu um erro. Tenta de novo dentro de instantes ou contacta a organização.",
+      ok_title: "Inscrição registada", code_label: "O teu código de inscrição",
+      tr_intro: "Para confirmar a inscrição, faz uma transferência de {amount} até {deadline}.",
+      tr_iban: "IBAN", tr_holder: "Titular", tr_ref: "Na descrição da transferência indica o código {code}.",
+      tr_after: "A inscrição fica confirmada depois de validarmos o pagamento e receberás um email de confirmação. Enviámos estas instruções para o teu email.",
+      redirecting: "A abrir a página de pagamento…",
+      pay_error: "Inscrição {code} registada, mas não foi possível abrir o pagamento. Tenta de novo.",
+      checking: "A confirmar o pagamento…",
+      paid_title: "Inscrição confirmada",
+      paid_text: "Pagamento recebido. Guarda o teu código. Enviámos a confirmação para o teu email.",
+      pending_text: "Ainda não recebemos a confirmação do pagamento. Pode demorar alguns instantes.",
+      check_again: "Verificar outra vez",
+      canceled_text: "O pagamento não foi concluído. A inscrição {code} está registada, mas só fica confirmada depois de pagares.",
+      retry_email: "Email usado na inscrição", retry_btn: "Pagar agora",
+      contact_h: "Contactos", contact_lead: "Tens alguma dúvida? Estamos aqui para ajudar!", contact_p: "Se precisas de mais informações sobre o percurso, inscrições ou qualquer outro detalhe da prova, entra em contacto connosco. Será um gosto ajudar-te a fazer parte desta aventura!", contact_social: "Segue-nos também nas redes sociais e acompanha todas as novidades das Atlânticas.", org_by: "Organização:", nav_lookup: "A minha inscrição", lk_h: "A minha inscrição", lk_intro: "Já te inscreveste? Escreve o código de inscrição e o email que usaste para ver o estado da tua inscrição.", lk_code: "Código de inscrição", lk_email: "Email", lk_btn: "Consultar", lk_notfound: "Não encontrámos nenhuma inscrição com estes dados. Confirma o código e o email.", lk_state: "Estado", lk_cat: "Escalão", lk_method: "Pagamento", state_pendente: "Pendente de pagamento", state_paga: "Confirmada", state_anulada: "Anulada", m_online: "Cartão ou MB WAY", m_transfer: "Transferência bancária", lk_paid: "A tua inscrição está confirmada. Guarda o teu código.", lk_cancelled: "Esta inscrição foi anulada. Se achas que é um erro, contacta a organização.", lk_pending_online: "Ainda falta o pagamento. Podes pagar agora com cartão ou MB WAY.", lk_pending_transfer: "Ainda não confirmámos a transferência. Faz a transferência de {amount} até {deadline}, indicando o código {code} na descrição.", lk_pay_btn: "Pagar agora com cartão ou MB WAY",
+      contact_tbc: "Redes sociais a confirmar", foot: "Corrida de mulheres."
     },
     es: {
       title: "2.ª Edición Atlânticas",
       desc: "Carrera de mujeres Atlânticas, 2.ª edición. Información, recorrido e inscripción.",
       nav_about: "Acerca de", nav_info: "Información", nav_reg: "Inscripción", nav_contact: "Contacto",
       edition: "2.ª Edición",
-      lead: "Una carrera solo para mujeres, en Madeira. 16 km para correr o caminar, el 27 de febrero.",
+      lead: "Una carrera solo para mujeres, en Madeira. 16 km para caminar o correr, el 27 de febrero.",
       cta: "Quiero inscribirme",
       about_h: "Sobre la carrera",
-      about_p: "Las Atlânticas son una carrera de mujeres, para todos los ritmos y edades. Llegamos a la 2.ª edición con el mismo objetivo: reunir a quienes corren desde hace años y a quienes se estrenan.",
-      about_tbc: "Texto provisional: escribe aquí la historia de la carrera y lo que la hace especial.",
+      about_p1: "Un recorrido, muchas mujeres y una experiencia para recordar.",
+      about_p2: "Las Atlânticas reúnen a mujeres que disfrutan de los retos, la naturaleza y los buenos momentos. En el maravilloso escenario de las montañas de la isla de Madeira, cada participante elige su ritmo: puede caminar, correr o simplemente disfrutar de cada instante de esta aventura.",
+      about_p3: "No importan la edad, la experiencia ni la velocidad. Lo que importa es participar, disfrutar de los paisajes, compartir sonrisas y celebrar la energía femenina en plena naturaleza.",
+      about_p4: "Ven a formar parte de esta aventura. ¡El camino es nuestro!",
+      course_h: "Recorrido",
+      course_p: "16 km de naturaleza, aventura y paisajes deslumbrantes. Un recorrido único, que puedes hacer caminando o corriendo, a tu ritmo y disfrutando de cada momento.",
       info_h: "Información",
-      dt_date: "Fecha", dd_date: "27 de febrero",
-      dt_time: "Hora", dd_time: "9:00",
-      dt_start: "Salida", dt_place: "Lugar de la carrera",
-      dt_course: "Recorrido",
-      dd_course: "16 km, recorrido único. Puedes hacerlo corriendo o caminando.",
+      dt_date: "Fecha", dd_date: "27 de febrero", dt_time: "Hora", dd_time: "9:00",
+      dt_start: "Salida", dt_place: "Lugar de la carrera", dt_course: "Recorrido",
+      dd_course: "16 km, recorrido único. Puedes hacerlo caminando o corriendo.",
       reg_h: "Inscripción",
-      reg_p: "Las inscripciones se hacen en línea. Asegura tu plaza y recibe toda la información de la carrera por correo electrónico.",
-      reg_btn: "Inscribirme",
-      reg_tbc: "El botón aún no tiene enlace de pago.",
-      contact_h: "Contacto",
-      contact_p: "¿Dudas sobre la carrera? Escríbenos.",
-      contact_tbc: "Correo y redes sociales por confirmar",
-      foot: "Carrera de mujeres."
+      reg_lead: "¿Estás lista para formar parte de esta aventura?",
+      reg_p1: "¡Únete a nosotras para una mañana diferente, rodeada de naturaleza, buena energía y mujeres increíbles!",
+      reg_p2: "Asegura tu plaza y prepárate para vivir una experiencia única en los paisajes de la isla de Madeira.",
+      reg_p3: "Cada paso cuenta. ¡Reserva tu plaza en las Atlânticas!",
+      reg_intro: "Inscripción: {amount}. Puedes pagar ahora con tarjeta o MB WAY, o por transferencia bancaria hasta el {deadline}.",
+      f_name: "Nombre completo", f_email: "Correo electrónico", f_country: "País", f_birth: "Fecha de nacimiento",
+      f_resident: "¿Es residente en la Región Autónoma de Madeira?", yes: "Sí", no: "No",
+      f_dial: "Prefijo", f_phone: "Teléfono móvil", f_pay: "¿Cómo quieres pagar?",
+      pay_online: "Tarjeta o MB WAY (confirmación inmediata)", pay_transfer: "Transferencia bancaria",
+      f_rules_pre: "He leído y acepto el ", f_rules_link: "reglamento de la carrera",
+      f_gdpr: "Acepto el tratamiento de mis datos. Los datos se usan solo para gestionar la inscripción y comunicar sobre la carrera, y solo la organización ({org}) tiene acceso. Contacto: {mail}.",
+      submit: "Inscribirme", choose: "Elegir…",
+      sending: "Enviando…",
+      err_unconfigured: "El formulario está en modo de vista previa y aún no está conectado al sistema de inscripciones.",
+      err_invalid: "Revisa los datos: hay campos vacíos o incorrectos.",
+      err_under_age: "La edad mínima para participar es de 16 años.",
+      err_full: "Las inscripciones están agotadas.",
+      err_duplicate: "Ya existe una inscripción con estos datos. Si necesitas ayuda, contacta con la organización.",
+      err_wait: "Espera un momento e inténtalo de nuevo.",
+      err_server: "Se ha producido un error. Inténtalo de nuevo en unos instantes o contacta con la organización.",
+      ok_title: "Inscripción registrada", code_label: "Tu código de inscripción",
+      tr_intro: "Para confirmar la inscripción, haz una transferencia de {amount} antes del {deadline}.",
+      tr_iban: "IBAN", tr_holder: "Titular", tr_ref: "En el concepto de la transferencia indica el código {code}.",
+      tr_after: "La inscripción queda confirmada cuando validemos el pago y recibirás un correo de confirmación. Hemos enviado estas instrucciones a tu correo.",
+      redirecting: "Abriendo la página de pago…",
+      pay_error: "Inscripción {code} registrada, pero no se pudo abrir el pago. Inténtalo de nuevo.",
+      checking: "Confirmando el pago…",
+      paid_title: "Inscripción confirmada",
+      paid_text: "Pago recibido. Guarda tu código. Hemos enviado la confirmación a tu correo.",
+      pending_text: "Aún no hemos recibido la confirmación del pago. Puede tardar unos instantes.",
+      check_again: "Comprobar otra vez",
+      canceled_text: "El pago no se completó. La inscripción {code} está registrada, pero solo queda confirmada cuando pagues.",
+      retry_email: "Correo usado en la inscripción", retry_btn: "Pagar ahora",
+      contact_h: "Contacto", contact_lead: "¿Tienes alguna duda? ¡Estamos aquí para ayudarte!", contact_p: "Si necesitas más información sobre el recorrido, las inscripciones o cualquier otro detalle de la carrera, ponte en contacto con nosotras. ¡Será un placer ayudarte a formar parte de esta aventura!", contact_social: "Síguenos también en las redes sociales y descubre todas las novedades de las Atlânticas.", org_by: "Organización:", nav_lookup: "Mi inscripción", lk_h: "Mi inscripción", lk_intro: "¿Ya te has inscrito? Escribe el código de inscripción y el correo que usaste para ver el estado de tu inscripción.", lk_code: "Código de inscripción", lk_email: "Correo electrónico", lk_btn: "Consultar", lk_notfound: "No hemos encontrado ninguna inscripción con estos datos. Comprueba el código y el correo.", lk_state: "Estado", lk_cat: "Categoría", lk_method: "Pago", state_pendente: "Pendiente de pago", state_paga: "Confirmada", state_anulada: "Anulada", m_online: "Tarjeta o MB WAY", m_transfer: "Transferencia bancaria", lk_paid: "Tu inscripción está confirmada. Guarda tu código.", lk_cancelled: "Esta inscripción ha sido anulada. Si crees que es un error, contacta con la organización.", lk_pending_online: "Aún falta el pago. Puedes pagar ahora con tarjeta o MB WAY.", lk_pending_transfer: "Aún no hemos confirmado la transferencia. Haz la transferencia de {amount} antes del {deadline}, indicando el código {code} en el concepto.", lk_pay_btn: "Pagar ahora con tarjeta o MB WAY",
+      contact_tbc: "Redes sociales por confirmar", foot: "Carrera de mujeres."
     },
     en: {
       title: "Atlânticas 2nd Edition",
       desc: "Atlânticas women's race, 2nd edition. Information, course and registration.",
       nav_about: "About", nav_info: "Information", nav_reg: "Registration", nav_contact: "Contact",
       edition: "2nd Edition",
-      lead: "A women-only race in Madeira. 16 km to run or walk, on 27 February.",
+      lead: "A women-only race in Madeira. 16 km to walk or run, on 27 February.",
       cta: "I want to register",
       about_h: "About the race",
-      about_p: "Atlânticas is a women's race for every pace and age. Now in its 2nd edition, it keeps the same goal: bringing together those who have run for years and those trying it for the first time.",
-      about_tbc: "Placeholder text: add the story of the race and what makes it special.",
+      about_p1: "One course, many women and an experience to remember!",
+      about_p2: "Atlânticas brings together women who love challenges, nature and good times. Set against the stunning mountains of Madeira, each participant chooses her own pace: you can walk, run, or simply enjoy every moment of this adventure.",
+      about_p3: "Age, experience and speed do not matter. What matters is taking part, enjoying the scenery, sharing smiles and celebrating feminine energy in the heart of nature.",
+      about_p4: "Come and be part of this adventure. The path is ours!",
+      course_h: "Course",
+      course_p: "16 km of nature, adventure and breathtaking scenery. A single course that you can walk or run, at your own pace, enjoying every moment.",
       info_h: "Information",
-      dt_date: "Date", dd_date: "27 February",
-      dt_time: "Time", dd_time: "9:00 am",
-      dt_start: "Start", dt_place: "Race location",
-      dt_course: "Course",
-      dd_course: "16 km, a single course. You can run it or walk it.",
+      dt_date: "Date", dd_date: "27 February", dt_time: "Time", dd_time: "9:00 am",
+      dt_start: "Start", dt_place: "Race location", dt_course: "Course",
+      dd_course: "16 km, a single course. You can walk it or run it.",
       reg_h: "Registration",
-      reg_p: "Registration is online. Secure your place and receive all race information by email.",
-      reg_btn: "Register",
-      reg_tbc: "The button is not linked to payment yet.",
-      contact_h: "Contact",
-      contact_p: "Questions about the race? Get in touch.",
-      contact_tbc: "Email and social media to be confirmed",
-      foot: "Women's race."
+      reg_lead: "Are you ready to be part of this adventure?",
+      reg_p1: "Join us for a different kind of morning, surrounded by nature, good energy and amazing women!",
+      reg_p2: "Secure your place and get ready for a unique experience in the landscapes of Madeira.",
+      reg_p3: "Every step counts. Reserve your place at Atlânticas!",
+      reg_intro: "Registration: {amount}. You can pay now by card or MB WAY, or by bank transfer until {deadline}.",
+      f_name: "Full name", f_email: "Email", f_country: "Country", f_birth: "Date of birth",
+      f_resident: "Are you a resident of the Madeira Autonomous Region?", yes: "Yes", no: "No",
+      f_dial: "Dial code", f_phone: "Mobile phone", f_pay: "How do you want to pay?",
+      pay_online: "Card or MB WAY (instant confirmation)", pay_transfer: "Bank transfer",
+      f_rules_pre: "I have read and accept the ", f_rules_link: "race regulations",
+      f_gdpr: "I accept the processing of my data. Data is used only to manage the registration and communicate about the race, and only the organisation ({org}) has access. Contact: {mail}.",
+      submit: "Register", choose: "Choose…",
+      sending: "Sending…",
+      err_unconfigured: "The form is in preview mode and is not yet connected to the registration system.",
+      err_invalid: "Please check your details: some fields are missing or incorrect.",
+      err_under_age: "The minimum age to take part is 16.",
+      err_full: "Registrations are full.",
+      err_duplicate: "A registration with these details already exists. If you need help, contact the organisation.",
+      err_wait: "Please wait a moment and try again.",
+      err_server: "Something went wrong. Please try again shortly or contact the organisation.",
+      ok_title: "Registration recorded", code_label: "Your registration code",
+      tr_intro: "To confirm your registration, make a transfer of {amount} by {deadline}.",
+      tr_iban: "IBAN", tr_holder: "Account holder", tr_ref: "Please put the code {code} in the transfer description.",
+      tr_after: "Your registration is confirmed once we verify the payment, and you will receive a confirmation email. We have sent these instructions to your email.",
+      redirecting: "Opening the payment page…",
+      pay_error: "Registration {code} recorded, but the payment page could not be opened. Please try again.",
+      checking: "Confirming the payment…",
+      paid_title: "Registration confirmed",
+      paid_text: "Payment received. Please keep your code. We have sent the confirmation to your email.",
+      pending_text: "We have not received the payment confirmation yet. It may take a few moments.",
+      check_again: "Check again",
+      canceled_text: "The payment was not completed. Registration {code} is recorded, but it is only confirmed once you pay.",
+      retry_email: "Email used in the registration", retry_btn: "Pay now",
+      contact_h: "Contact", contact_lead: "Any questions? We are here to help!", contact_p: "If you need more information about the course, registration or any other detail of the race, get in touch. We would be glad to help you be part of this adventure!", contact_social: "Follow us on social media too and keep up with all the news from Atlânticas.", org_by: "Organised by:", nav_lookup: "My registration", lk_h: "My registration", lk_intro: "Already registered? Enter your registration code and the email you used to see your registration status.", lk_code: "Registration code", lk_email: "Email", lk_btn: "Check", lk_notfound: "We could not find a registration with these details. Please check the code and email.", lk_state: "Status", lk_cat: "Category", lk_method: "Payment", state_pendente: "Payment pending", state_paga: "Confirmed", state_anulada: "Cancelled", m_online: "Card or MB WAY", m_transfer: "Bank transfer", lk_paid: "Your registration is confirmed. Please keep your code.", lk_cancelled: "This registration has been cancelled. If you think this is a mistake, contact the organisation.", lk_pending_online: "Payment is still missing. You can pay now by card or MB WAY.", lk_pending_transfer: "We have not confirmed the transfer yet. Please transfer {amount} by {deadline}, putting the code {code} in the description.", lk_pay_btn: "Pay now by card or MB WAY",
+      contact_tbc: "Social media to be confirmed", foot: "Women's race."
     }
   };
   var HTML_LANG = { pt: "pt-PT", es: "es", en: "en" };
 
+  var DIAL = ("AD:376,AE:971,AF:93,AG:1268,AI:1264,AL:355,AM:374,AO:244,AR:54,AS:1684,AT:43,AU:61,AW:297,AX:358,AZ:994,BA:387,BB:1246,BD:880,BE:32,BF:226,BG:359,BH:973,BI:257,BJ:229,BL:590,BM:1441,BN:673,BO:591,BQ:599,BR:55,BS:1242,BT:975,BW:267,BY:375,BZ:501,CA:1,CC:61,CD:243,CF:236,CG:242,CH:41,CI:225,CK:682,CL:56,CM:237,CN:86,CO:57,CR:506,CU:53,CV:238,CW:599,CX:61,CY:357,CZ:420,DE:49,DJ:253,DK:45,DM:1767,DO:1809,DZ:213,EC:593,EE:372,EG:20,EH:212,ER:291,ES:34,ET:251,FI:358,FJ:679,FK:500,FM:691,FO:298,FR:33,GA:241,GB:44,GD:1473,GE:995,GF:594,GG:44,GH:233,GI:350,GL:299,GM:220,GN:224,GP:590,GQ:240,GR:30,GT:502,GU:1671,GW:245,GY:592,HK:852,HN:504,HR:385,HT:509,HU:36,ID:62,IE:353,IL:972,IM:44,IN:91,IO:246,IQ:964,IR:98,IS:354,IT:39,JE:44,JM:1876,JO:962,JP:81,KE:254,KG:996,KH:855,KI:686,KM:269,KN:1869,KP:850,KR:82,KW:965,KY:1345,KZ:7,LA:856,LB:961,LC:1758,LI:423,LK:94,LR:231,LS:266,LT:370,LU:352,LV:371,LY:218,MA:212,MC:377,MD:373,ME:382,MF:590,MG:261,MH:692,MK:389,ML:223,MM:95,MN:976,MO:853,MP:1670,MQ:596,MR:222,MS:1664,MT:356,MU:230,MV:960,MW:265,MX:52,MY:60,MZ:258,NA:264,NC:687,NE:227,NF:672,NG:234,NI:505,NL:31,NO:47,NP:977,NR:674,NU:683,NZ:64,OM:968,PA:507,PE:51,PF:689,PG:675,PH:63,PK:92,PL:48,PM:508,PR:1787,PS:970,PT:351,PW:680,PY:595,QA:974,RE:262,RO:40,RS:381,RU:7,RW:250,SA:966,SB:677,SC:248,SD:249,SE:46,SG:65,SH:290,SI:386,SJ:47,SK:421,SL:232,SM:378,SN:221,SO:252,SR:597,SS:211,ST:239,SV:503,SX:1721,SY:963,SZ:268,TC:1649,TD:235,TG:228,TH:66,TJ:992,TK:690,TL:670,TM:993,TN:216,TO:676,TR:90,TT:1868,TV:688,TW:886,TZ:255,UA:380,UG:256,US:1,UY:598,UZ:998,VA:39,VC:1784,VE:58,VG:1284,VI:1340,VN:84,VU:678,WF:681,WS:685,XK:383,YE:967,YT:262,ZA:27,ZM:260,ZW:263").split(",").map(function (p) { var a = p.split(":"); return { iso: a[0], dial: "+" + a[1] }; });
+
+  var lang = "pt";
+  var form = document.getElementById("reg-form");
+  var elCountry = document.getElementById("f-country");
+  var elDial = document.getElementById("f-dial");
+  var elMsg = document.getElementById("reg-msg");
+  var elResult = document.getElementById("reg-result");
+  var elSubmit = document.getElementById("f-submit");
+
+  function fmt(s, v) { return s.replace(/\{(\w+)\}/g, function (_, k) { return v && v[k] !== undefined ? v[k] : ""; }); }
+  function t(k, v) { return fmt(T[lang][k] || k, v); }
+  function names(l) {
+    try { return new Intl.DisplayNames([l === "pt" ? "pt-PT" : l], { type: "region" }); } catch (e) { return null; }
+  }
+  function nameOf(dn, iso) { var n = null; try { n = dn && dn.of(iso); } catch (e) {} return n && n !== iso ? n : iso; }
+
+  function buildLists() {
+    var dn = names(lang), selC = elCountry.value, selD = elDial.value;
+    var items = DIAL.map(function (c) { return { iso: c.iso, dial: c.dial, name: nameOf(dn, c.iso) }; });
+    items.sort(function (a, b) {
+      if (a.iso === "PT") return -1; if (b.iso === "PT") return 1;
+      return a.name.localeCompare(b.name, lang);
+    });
+    var optC = '<option value="">' + t("choose") + "</option>";
+    var optD = optC;
+    items.forEach(function (c) {
+      optC += '<option value="' + c.iso + '">' + c.name + "</option>";
+      optD += '<option value="' + c.dial + '" data-iso="' + c.iso + '">' + c.name + " (" + c.dial + ")</option>";
+    });
+    elCountry.innerHTML = optC;
+    elDial.innerHTML = optD;
+    if (selC) elCountry.value = selC;
+    if (selD) elDial.value = selD;
+  }
+
+  elCountry.addEventListener("change", function () {
+    var iso = elCountry.value;
+    for (var i = 0; i < elDial.options.length; i++) {
+      if (elDial.options[i].getAttribute("data-iso") === iso) { elDial.selectedIndex = i; break; }
+    }
+  });
+
   function setLang(l) {
     if (!T[l]) l = "pt";
+    lang = l;
     var d = T[l];
     document.documentElement.lang = HTML_LANG[l];
     document.title = d.title;
@@ -292,25 +468,223 @@
     if (meta) meta.setAttribute("content", d.desc);
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var k = el.getAttribute("data-i18n");
-      if (d[k] !== undefined) el.textContent = d[k];
+      if (d[k] === undefined) return;
+      el.textContent = fmt(d[k], { amount: AMOUNT[l], deadline: DEADLINE[l], org: ORG_NAME, mail: ORG_EMAIL });
     });
+    document.getElementById("gdpr-text").textContent = t("f_gdpr", { org: ORG_NAME, mail: ORG_EMAIL });
+    document.getElementById("rules-link").setAttribute("href", "regulamento-" + l + ".pdf");
     document.querySelectorAll(".lang button").forEach(function (b) {
       b.setAttribute("aria-pressed", b.getAttribute("data-lang") === l ? "true" : "false");
     });
+    buildLists();
     try { localStorage.setItem("atlanticas-lang", l); } catch (e) {}
   }
-
   document.querySelectorAll(".lang button").forEach(function (b) {
     b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
   });
 
+  /* ---- chamadas ao servidor ---- */
+  function configured() { return API_URL && API_URL.indexOf("COLAR") !== 0; }
+  function call(body) {
+    return fetch(API_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json(); });
+  }
+  function showMsg(text, isErr) {
+    elMsg.innerHTML = "";
+    if (!text) return;
+    var d = document.createElement("div");
+    d.className = "msg" + (isErr ? " err" : "");
+    d.textContent = text;
+    elMsg.appendChild(d);
+  }
+  function panel(title, parts) {
+    elResult.innerHTML = "";
+    var p = document.createElement("div");
+    p.className = "panel";
+    var h = document.createElement("h3"); h.textContent = title; p.appendChild(h);
+    parts.forEach(function (n) { p.appendChild(n); });
+    elResult.appendChild(p);
+    elResult.scrollIntoView({ behavior: "smooth", block: "start" });
+    return p;
+  }
+  function para(text) { var e = document.createElement("p"); e.textContent = text; return e; }
+  function codeEl(code) {
+    var w = document.createElement("div");
+    var l = document.createElement("div"); l.textContent = t("code_label"); l.style.fontWeight = "600";
+    var c = document.createElement("div"); c.className = "code"; c.textContent = code;
+    w.appendChild(l); w.appendChild(c); return w;
+  }
+  function button(label, fn) {
+    var b = document.createElement("button"); b.type = "button"; b.className = "btn"; b.textContent = label;
+    b.addEventListener("click", fn); return b;
+  }
+
+  function showTransfer(r) {
+    var dl = document.createElement("dl");
+    [[t("tr_iban"), r.iban], [t("tr_holder"), r.titular]].forEach(function (x) {
+      var dt = document.createElement("dt"); dt.textContent = x[0];
+      var dd = document.createElement("dd"); dd.textContent = x[1] || "—";
+      dl.appendChild(dt); dl.appendChild(dd);
+    });
+    panel(t("ok_title"), [codeEl(r.code), para(t("tr_intro", { amount: AMOUNT[lang], deadline: DEADLINE[lang] })), dl, para(t("tr_ref", { code: r.code })), para(t("tr_after"))]);
+    form.style.display = "none";
+  }
+
+  function showRetry(code, intro) {
+    var wrap = document.createElement("div");
+    wrap.className = "inline";
+    var box = document.createElement("div");
+    var lab = document.createElement("label"); lab.setAttribute("for", "retry-email"); lab.textContent = t("retry_email");
+    var inp = document.createElement("input"); inp.type = "email"; inp.id = "retry-email"; inp.autocomplete = "email";
+    box.appendChild(lab); box.appendChild(inp);
+    var btn = button(t("retry_btn"), function () {
+      if (!configured()) { showMsg(t("err_unconfigured"), true); return; }
+      btn.disabled = true;
+      call({ action: "repay", codigo: code, email: inp.value, lang: lang }).then(function (r) {
+        if (r.ok && r.status === "redirect" && r.checkoutUrl) { window.location.href = r.checkoutUrl; return; }
+        if (r.ok && r.status === "paid") { showPaid(code); return; }
+        btn.disabled = false; showMsg(t("err_" + (r.error || "server")) || t("err_server"), true);
+      }).catch(function () { btn.disabled = false; showMsg(t("err_server"), true); });
+    });
+    wrap.appendChild(box); wrap.appendChild(btn);
+    panel(t("ok_title"), [codeEl(code), para(intro), wrap]);
+    form.style.display = "none";
+  }
+
+  function showPaid(code) {
+    panel(t("paid_title"), [codeEl(code), para(t("paid_text"))]);
+    form.style.display = "none";
+  }
+
+  function verify(code, sid) {
+    panel(t("ok_title"), [codeEl(code), para(t("checking"))]);
+    form.style.display = "none";
+    if (!configured()) { showMsg(t("err_unconfigured"), true); return; }
+    call({ action: "status", codigo: code, session_id: sid }).then(function (r) {
+      if (r.ok && r.status === "paid") { showPaid(code); return; }
+      if (r.ok) {
+        panel(t("ok_title"), [codeEl(code), para(t("pending_text")), button(t("check_again"), function () { verify(code, sid); })]);
+        return;
+      }
+      showMsg(t("err_server"), true);
+    }).catch(function () { showMsg(t("err_server"), true); });
+  }
+
+  /* ---- submissão ---- */
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    showMsg("");
+    if (!configured()) { showMsg(t("err_unconfigured"), true); return; }
+    var f = form.elements;
+    var res = form.querySelector('input[name="resident"]:checked');
+    var met = form.querySelector('input[name="method"]:checked');
+    var dn = names("pt");
+    var body = {
+      action: "register", lang: lang,
+      name: f.name.value, email: f.email.value,
+      country: elCountry.value ? nameOf(dn, elCountry.value) : "",
+      resident: res ? res.value : "",
+      dial: elDial.value, phone: f.phone.value, birth: f.birth.value,
+      method: met ? met.value : "",
+      rules: document.getElementById("f-rules").checked,
+      gdpr: document.getElementById("f-gdpr").checked,
+      website: document.getElementById("f-website").value
+    };
+    if (!body.name.trim() || !body.email.trim() || !body.country || !body.resident || !body.dial || !body.phone.trim() || !body.birth || !body.rules || !body.gdpr) {
+      showMsg(t("err_invalid"), true); return;
+    }
+    elSubmit.disabled = true;
+    showMsg(t("sending"));
+    call(body).then(function (r) {
+      elSubmit.disabled = false;
+      if (!r.ok) { showMsg(t("err_" + (r.error || "server")), true); return; }
+      if (r.method === "transfer") { showTransfer(r); return; }
+      if (r.checkoutUrl) { showMsg(t("redirecting")); window.location.href = r.checkoutUrl; return; }
+      showRetry(r.code, t("pay_error", { code: r.code }));
+    }).catch(function () { elSubmit.disabled = false; showMsg(t("err_server"), true); });
+  });
+
+  /* ---- consultar inscrição ---- */
+  var lkForm = document.getElementById("lk-form");
+  var lkRes = document.getElementById("lk-result");
+  function lkMsg(text, isErr) {
+    lkRes.innerHTML = "";
+    var d = document.createElement("div");
+    d.className = "msg" + (isErr ? " err" : "");
+    d.textContent = text;
+    lkRes.appendChild(d);
+  }
+  function lkShow(r, email) {
+    lkRes.innerHTML = "";
+    var st = ["pendente", "paga", "anulada"].indexOf(r.state) >= 0 ? r.state : "pendente";
+    var p = document.createElement("div");
+    p.className = "panel";
+    var dl = document.createElement("dl");
+    [[t("lk_code"), r.code], [t("lk_state"), t("state_" + st)], [t("lk_cat"), r.category || "—"],
+     [t("lk_method"), t(r.method === "online" ? "m_online" : "m_transfer")]].forEach(function (x) {
+      var dt = document.createElement("dt"); dt.textContent = x[0];
+      var dd = document.createElement("dd"); dd.textContent = x[1];
+      dl.appendChild(dt); dl.appendChild(dd);
+    });
+    p.appendChild(dl);
+    var vars = { amount: AMOUNT[lang], deadline: DEADLINE[lang], code: r.code };
+    if (st === "paga") p.appendChild(para(t("lk_paid")));
+    else if (st === "anulada") p.appendChild(para(t("lk_cancelled")));
+    else {
+      p.appendChild(para(r.method === "transfer" ? t("lk_pending_transfer", vars) : t("lk_pending_online")));
+      if (r.method === "transfer") {
+        var dl2 = document.createElement("dl");
+        [[t("tr_iban"), r.iban], [t("tr_holder"), r.titular]].forEach(function (x) {
+          var dt = document.createElement("dt"); dt.textContent = x[0];
+          var dd = document.createElement("dd"); dd.textContent = x[1] || "—";
+          dl2.appendChild(dt); dl2.appendChild(dd);
+        });
+        p.appendChild(dl2);
+      }
+      var pay = button(t("lk_pay_btn"), function () {
+        pay.disabled = true;
+        call({ action: "repay", codigo: r.code, email: email, lang: lang }).then(function (x) {
+          if (x.ok && x.status === "redirect" && x.checkoutUrl) { window.location.href = x.checkoutUrl; return; }
+          pay.disabled = false; lkMsg(t("err_server"), true);
+        }).catch(function () { pay.disabled = false; lkMsg(t("err_server"), true); });
+      });
+      p.appendChild(pay);
+    }
+    lkRes.appendChild(p);
+  }
+  lkForm.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    lkRes.innerHTML = "";
+    if (!configured()) { lkMsg(t("err_unconfigured"), true); return; }
+    var code = document.getElementById("lk-code").value.trim().toUpperCase();
+    var email = document.getElementById("lk-email").value.trim();
+    if (!/^ATL-\d{4,}$/.test(code) || !email) { lkMsg(t("lk_notfound"), true); return; }
+    var b = document.getElementById("lk-submit");
+    b.disabled = true;
+    call({ action: "lookup", codigo: code, email: email }).then(function (r) {
+      b.disabled = false;
+      if (r.ok) { lkShow(r, email); return; }
+      lkMsg(r.error === "wait" ? t("err_wait") : (r.error === "not_found" ? t("lk_notfound") : t("err_server")), true);
+    }).catch(function () { b.disabled = false; lkMsg(t("err_server"), true); });
+  });
+
+  /* ---- arranque ---- */
   var start = null;
   try { start = localStorage.getItem("atlanticas-lang"); } catch (e) {}
-  if (!start) {
-    var nav = (navigator.language || "pt").slice(0, 2).toLowerCase();
-    start = T[nav] ? nav : "pt";
-  }
+  if (!start) { var nv = (navigator.language || "pt").slice(0, 2).toLowerCase(); start = T[nv] ? nv : "pt"; }
   setLang(start);
+
+  /* regresso do Stripe */
+  var q = new URLSearchParams(window.location.search);
+  var qc = q.get("codigo");
+  if (qc && /^ATL-\d{4,}$/.test(qc)) {
+    if (q.get("pago") === "1" && /^cs_[A-Za-z0-9_]+$/.test(q.get("session_id") || "")) {
+      verify(qc, q.get("session_id"));
+    } else if (q.get("pagamento") === "cancelado") {
+      showRetry(qc, t("canceled_text", { code: qc }));
+    }
+    try { history.replaceState(null, "", window.location.pathname + "#inscricao"); } catch (e) {}
+  }
 })();
 </script>
 </body>
